@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="HackatonProject.Views.LogInView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:HackatonProject.Views"
+        mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="TextBox" x:Key="InputField">
+            <Style.Setters>
+                <Setter Property="Height" Value="25"/>
+                <Setter Property="Width" Value="120"/>
+            </Style.Setters>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="PreviewText">
+            <Style.Setters>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="Height" Value="25"/>
+                <Setter Property="Width" Value="120"/>
+                <Setter Property="Margin" Value="0 5 0 0"/>
+            </Style.Setters>
+        </Style>
+    </UserControl.Resources>
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource PreviewText}" Text="Enter username"></TextBlock>
+            <TextBox Style="{StaticResource InputField}"></TextBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource PreviewText}" Text="Enter password"></TextBlock>
+            <TextBox Style="{StaticResource InputField}"></TextBox>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="HackatonProject.Views.EventView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HackatonProject.Views"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="Image" x:Key="ScoreIconStyle">
+            <Setter Property="Width" Value="15"/>
+            <Setter Property="Height" Value="15"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="HeadLineStyle">
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#F7B53B"/>
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource HeadLineStyle}" x:Key="SecondHeadLineStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0 0 0 11"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="EventDescription">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Margin" Value="8 4"/>
+        </Style>
+    </UserControl.Resources>
+
+    <DockPanel Background="White" Margin="20 0">
+        <StackPanel DockPanel.Dock="Top" >
+            <TextBlock Style="{StaticResource HeadLineStyle}" Margin="0 11 0 10" FontSize="24" Text="О мероприятии" />
+            <TextBlock FontSize="14" FontWeight="SemiBold" Margin="0 8" Text="Организация, проводящая мероприятие" />
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontWeight="SemiBold" FontSize="24" Text="lorep ipsum" />
+                    <Image Margin="8 10" Source="/Icons/галочка.png" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Image Style="{StaticResource ScoreIconStyle}" Source="/Icons/звезда.png" />
+                    <Image Style="{StaticResource ScoreIconStyle}" Source="/Icons/звезда.png" />
+                    <Image Style="{StaticResource ScoreIconStyle}" Source="/Icons/звезда.png" />
+                    <Image Style="{StaticResource ScoreIconStyle}" Source="/Icons/звезда.png" />
+                    <Image Style="{StaticResource ScoreIconStyle}" Source="/Icons/звезда.png" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Margin="0 19 0 0" Orientation="Vertical">
+            <TextBlock Style="{StaticResource HeadLineStyle}" FontSize="16" Text="Информация" />
+            <StackPanel Margin="0 11 0 0" Orientation="Vertical">
+                <Border CornerRadius="10">
+                    <StackPanel>
+                        <StackPanel Background="White" Orientation="Vertical">
+                            <Image Source="/Images/16nktc8y.png"/>
+                            <StackPanel>
+                                <TextBlock Style="{StaticResource EventDescription}" FontSize="14" FontWeight="SemiBold" Text="Кинотеатр 'Центральный'" />
+                                <TextBlock Style="{StaticResource EventDescription}" Text="Остановка у кинотеатра сильно загрязнена" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource EventDescription}" Text="Теги:" />
+                                    <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1">
+                                        <TextBlock Style="{StaticResource EventDescription}" Text="#уборка мусора" />
+                                    </Border>
+                                </StackPanel>
+                                <StackPanel Margin="0 8 0 0" HorizontalAlignment="Left" Orientation="Horizontal" >
+                                    <Image Width="25" Height="25" Source="/Icons/Эллипс 1.png" />
+                                    <Image Width="25" Margin="-11" Height="25" Source="/Icons/Контур 1.png" />
+                                    <Image Width="25" Height="25" Source="/Icons/Контур 2.png" />
+                                    <TextBlock VerticalAlignment="Center" Margin="5 0" Text="+6 Участвуют "/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+
+</UserControl>

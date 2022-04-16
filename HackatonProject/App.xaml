@@ -1,9 +1,10 @@
 ﻿<Application x:Class="HackatonProject.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:HackatonProject"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:HackatonProject">
     <Application.Resources>
-         
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="D:\Projects\WPF Learning\hck-1\HackatonProject\Fonts\Inter\Inter-VariableFont_slnt,wght.ttf"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

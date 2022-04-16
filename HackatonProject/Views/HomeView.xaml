@@ -1,0 +1,183 @@
+﻿<UserControl x:Class="HackatonProject.Views.HomeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:HackatonProject.Views"
+        mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="EventHelpTextStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="HeadLineStyle">
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#F7B53B"/>
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource HeadLineStyle}" x:Key="SecondHeadLineStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0 0 0 11"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="EventDescription">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Margin" Value="8 4"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="DefaultButton">
+            <Style.Setters>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="Padding" Value="-4"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="UnselectableListBoxItem" TargetType="ListBoxItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="Border">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="Transparent" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button" BasedOn="{StaticResource DefaultButton}" x:Key="TransitionButtonStyle">
+            <Style.Setters>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Width" Value="30"/>
+                <Setter Property="FontSize" Value="15"/>
+            </Style.Setters>
+        </Style>
+    </UserControl.Resources>
+
+    <ScrollViewer>
+        <DockPanel Background="White" Margin="20 0">
+            <TextBlock DockPanel.Dock="Top" Style="{StaticResource HeadLineStyle}" Margin="0 11 0 10" FontSize="24" Text="Главная"></TextBlock>
+            <StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Style="{StaticResource SecondHeadLineStyle}" Text="Мероприятия по тегам"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Border Margin="0 0 8 0" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+                            <TextBlock Padding="2" Style="{StaticResource EventHelpTextStyle}" Text="#уборка мусора"/>
+                        </Border>
+                        <Border Margin="0 0 8 0" BorderBrush="#F7B53B" BorderThickness="1" CornerRadius="10">
+                            <TextBlock Padding="2" Style="{StaticResource EventHelpTextStyle}" Foreground="#F7B53B" Text="#помощь бездомным"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Margin="0 8 0 0" Orientation="Horizontal">
+                        <Border Margin="0 0 8 0" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+                            <TextBlock Padding="2" Style="{StaticResource EventHelpTextStyle}" Text="#помощь животным"/>
+                        </Border>
+                        <Border Margin="0 0 8 0" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+                            <TextBlock Padding="2" Style="{StaticResource EventHelpTextStyle}" Text="#благотворительность"/>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Margin="0 20 0 0" Orientation="Vertical">
+                    <TextBlock Style="{StaticResource SecondHeadLineStyle}" Text="Последнее мероприятие"/>
+                    <Border CornerRadius="10">
+                        <StackPanel>
+                            <Border BorderBrush="White" BorderThickness="10" CornerRadius="3">
+                                <Border.BitmapEffect>
+                                    <DropShadowBitmapEffect Color="Black" Opacity="0.1" />
+                                </Border.BitmapEffect>
+                                <Button Command="{Binding Path=NavigationBarViewModel.EventViewCommand}"  Style="{StaticResource DefaultButton}">
+                                    <StackPanel Background="White" Orientation="Vertical">
+                                        <Image Source="/Images/dirtyYakutsk.png"></Image>
+                                        <StackPanel>
+                                            <TextBlock Style="{StaticResource EventDescription}" FontSize="14" FontWeight="SemiBold" Text="Кинотеатр 'Центральный'" />
+                                            <TextBlock Style="{StaticResource EventDescription}" Text="Остановка у кинотеатра сильно загрязнена" />
+                                            <Grid Margin="8">
+                                                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" >
+                                                    <Image Width="25" Height="25" Source="/Icons/Эллипс 1.png" />
+                                                    <Image Width="25" Margin="-11" Height="25" Source="/Icons/Контур 1.png" />
+                                                    <Image Width="25" Height="25" Source="/Icons/Контур 2.png" />
+                                                    <TextBlock VerticalAlignment="Center" Margin="5 0" Text="+2 Участвуют "/>
+                                                </StackPanel>
+                                                <StackPanel Background="#F7B53B" HorizontalAlignment="Right">
+                                                    <Button Style="{StaticResource TransitionButtonStyle}">
+                                                        <Image Height="15" Width="15" Source="/Icons/стрелка.png"/>
+                                                    </Button>
+                                                </StackPanel>
+                                            </Grid>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+                            <TextBlock Foreground="#F7B53B" Margin="0 11 0 0" FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Center" Text="Смотреть все (50)"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <TextBlock Margin="0 11 0 0" Style="{StaticResource SecondHeadLineStyle}" FontSize="16" Text="Список организаций"/>
+                <ListBox ItemContainerStyle="{StaticResource UnselectableListBoxItem}" BorderThickness="0" ItemsSource="{Binding Organizations}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Height="100" Width="275" Margin="0 20 0 0">
+                                <Button  Command="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=DataContext.NavigationBarViewModel.OrganizationViewCommand}"  Style="{StaticResource DefaultButton}">
+                                    <Border BorderBrush="White" BorderThickness="10" CornerRadius="3">
+                                        <Border.Effect>
+                                            <DropShadowEffect Direction="-75" Color="Black" BlurRadius="25" Opacity="0.2" />
+                                        </Border.Effect>
+                                        <StackPanel Background="White">
+                                            <StackPanel>
+                                                <StackPanel>
+                                                    <Grid>
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                                            <TextBlock Style="{StaticResource SecondHeadLineStyle}" Foreground="Black" Text="lorep ipsum"/>
+                                                            <Image Height="15" Width="15" Margin="10 0 0 10" Source="/Icons/галочка.png"/>
+                                                        </StackPanel>
+                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                                            <Image Height="15" Width="15" Source="/Icons/звезда.png" />
+                                                            <Image Height="15" Width="15" Source="/Icons/звезда.png" />
+                                                            <Image Height="15" Width="15" Source="/Icons/звезда.png" />
+                                                            <Image Height="15" Width="15" Source="/Icons/звезда.png" />
+                                                            <Image Height="15" Width="15" Source="/Icons/звезда.png" />
+                                                        </StackPanel>
+                                                    </Grid>
+                                                    <Grid>
+                                                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" >
+                                                            <Image Width="25" Height="25" Source="/Icons/Эллипс 1.png" />
+                                                            <Image Width="25" Margin="-11" Height="25" Source="/Icons/Контур 1.png" />
+                                                            <Image Width="25" Height="25" Source="/Icons/Контур 2.png" />
+                                                            <TextBlock VerticalAlignment="Center" Margin="5 0" Text="+2 Состоят"/>
+                                                        </StackPanel>
+                                                        <StackPanel Background="#F7B53B" HorizontalAlignment="Right">
+                                                            <Button Style="{StaticResource TransitionButtonStyle}">
+                                                                <Image Height="15" Width="15" Source="/Icons/плюсик.png"/>
+                                                            </Button>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </DockPanel>
+    </ScrollViewer>
+</UserControl>

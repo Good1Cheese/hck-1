@@ -1,17 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using HackatonProject.ViewModels;
 using System.Windows;
 
 namespace HackatonProject
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            NavigationStore navigationStore = new();
+            NavigationBarViewModel navigationBarViewModel = new(navigationStore);
+
+            MainWindow mainWindow = new()
+            {
+                DataContext = new MainViewModel(navigationBarViewModel, navigationStore)
+            };
+
+            mainWindow.Show();
+        }
     }
 }

@@ -1,0 +1,42 @@
+﻿<Window x:Class="HackatonProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels ="clr-namespace:HackatonProject.ViewModels"
+        xmlns:views ="clr-namespace:HackatonProject.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="760" Width="360" 
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <views:NavigationBarView DataContext="{Binding NavigationBarViewModel}" Grid.Row="1"/>
+
+        <ContentControl Grid.Row="0" Content="{Binding NavigationStore.CurrentViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
+                    <views:HomeView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModels:SignInViewModel}">
+                    <views:SignInView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModels:LogInViewModel}">
+                    <views:LogInView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModels:OrganizationViewModel}">
+                    <views:OrganizationView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModels:EventViewModel}">
+                    <views:EventView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModels:SignAndLogViewModel}">
+                    <views:SignAndLogView />
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+    </Grid>
+</Window>

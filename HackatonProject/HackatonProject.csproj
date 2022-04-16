@@ -7,4 +7,47 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Icons\16nktc8y.png" />
+    <None Remove="Icons\logo копия.png" />
+    <None Remove="Icons\logo.png" />
+    <None Remove="Icons\вк.png" />
+    <None Remove="Icons\галочка.png" />
+    <None Remove="Icons\главная.png" />
+    <None Remove="Icons\звезда.png" />
+    <None Remove="Icons\Контур 1.png" />
+    <None Remove="Icons\Контур 2.png" />
+    <None Remove="Icons\плюсик.png" />
+    <None Remove="Icons\поиск.png" />
+    <None Remove="Icons\профиль.png" />
+    <None Remove="Icons\стрелка-1.png" />
+    <None Remove="Icons\стрелка.png" />
+    <None Remove="Icons\Эллипс 1.png" />
+    <None Remove="Images\16nktc8y.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\logo копия.png" />
+    <Resource Include="Icons\logo.png" />
+    <Resource Include="Icons\вк.png" />
+    <Resource Include="Images\16nktc8y.png" />
+    <Resource Include="Images\dirtyYakutsk.png" />
+    <Resource Include="Icons\галочка.png" />
+    <Resource Include="Icons\главная.png" />
+    <Resource Include="Icons\звезда.png" />
+    <Resource Include="Icons\Контур 1.png" />
+    <Resource Include="Icons\Контур 2.png" />
+    <Resource Include="Icons\плюсик.png" />
+    <Resource Include="Icons\поиск.png" />
+    <Resource Include="Icons\профиль.png" />
+    <Resource Include="Icons\стрелка-1.png" />
+    <Resource Include="Icons\стрелка.png" />
+    <Resource Include="Icons\Эллипс 1.png" />
+  </ItemGroup>
+
 </Project>
